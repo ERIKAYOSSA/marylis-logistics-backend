@@ -6,17 +6,23 @@ body {
   scroll-behavior: smooth;
 }
 
-a {
-  text-decoration: none;
+/* 🔝 Header transparent au scroll */
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  background-color: transparent;
 }
 
+header.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Logo et icônes */
 .logo {
   height: 40px;
-}
-
-/* 🔝 Header */
-header {
-  transition: background-color 0.3s ease;
 }
 
 .top-header .icon {
@@ -28,26 +34,30 @@ header {
 .bottom-header .nav-link {
   font-weight: bold;
   color: #003366;
+  transition: color 0.3s ease;
 }
 
 .bottom-header .nav-link:hover {
   color: #006400;
 }
 
-/* 🖼️ Carousel */
+/* 🖼️ Carousel animations */
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
+  animation: fadeInUp 1s ease-out;
 }
 
-.carousel-caption h5 {
-  font-size: 1.5em;
-  color: #fff;
-}
-
-.carousel-caption .btn {
-  margin-top: 10px;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 📊 Barre semi-transparente */
@@ -58,6 +68,18 @@ header {
   position: relative;
   margin-top: -40px;
   z-index: 10;
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .info-bar a {
@@ -72,6 +94,11 @@ header {
   padding: 10px 15px;
   border-radius: 5px;
   font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.info-bar .box:hover {
+  transform: scale(1.05);
 }
 
 /* 💥 Message d’impact */
@@ -79,17 +106,25 @@ header {
   font-size: 3em;
   color: #006400;
   font-weight: bold;
+  animation: fadeIn 1.2s ease-out;
 }
 
 .impact-message p {
   font-size: 1.2em;
   color: #003366;
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* 🎥 Vidéo */
 .video-section {
   background-color: #e6f2ff;
   padding: 40px 0;
+  animation: fadeInUp 1s ease-out;
 }
 
 .video-section video {
@@ -103,6 +138,7 @@ header {
   margin-top: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  animation: fadeIn 1.2s ease-out;
 }
 
 /* 🦶 Footer */
