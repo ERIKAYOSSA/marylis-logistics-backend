@@ -1,0 +1,115 @@
+/* 🌐 Général */
+body {
+  margin-top: 120px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  height: 40px;
+}
+
+/* 🔝 Header */
+header {
+  transition: background-color 0.3s ease;
+}
+
+.top-header .icon {
+  font-size: 1.2em;
+  margin-right: 10px;
+  color: #003366;
+}
+
+.bottom-header .nav-link {
+  font-weight: bold;
+  color: #003366;
+}
+
+.bottom-header .nav-link:hover {
+  color: #006400;
+}
+
+/* 🖼️ Carousel */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-caption h5 {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.carousel-caption .btn {
+  margin-top: 10px;
+}
+
+/* 📊 Barre semi-transparente */
+.info-bar {
+  background-color: rgba(0, 100, 0, 0.85);
+  color: white;
+  padding: 15px;
+  position: relative;
+  margin-top: -40px;
+  z-index: 10;
+}
+
+.info-bar a {
+  color: white;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.info-bar .box {
+  background-color: white;
+  color: #006400;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* 💥 Message d’impact */
+.impact-message h1 {
+  font-size: 3em;
+  color: #006400;
+  font-weight: bold;
+}
+
+.impact-message p {
+  font-size: 1.2em;
+  color: #003366;
+}
+
+/* 🎥 Vidéo */
+.video-section {
+  background-color: #e6f2ff;
+  padding: 40px 0;
+}
+
+.video-section video {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* 🗓️ Flyer mensuel */
+.monthly-flyer img {
+  max-width: 600px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* 🦶 Footer */
+footer h5, footer p {
+  margin-bottom: 10px;
+}
+
+footer img {
+  border-radius: 5px;
+}
