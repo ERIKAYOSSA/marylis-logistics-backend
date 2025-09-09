@@ -2,7 +2,7 @@
 body {
   margin-top: 120px;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   scroll-behavior: smooth;
 }
 
@@ -10,7 +10,7 @@ a {
   text-decoration: none;
 }
 
-/* 🔝 Header transparent au départ */
+/* 🔝 Header transparent */
 header {
   position: fixed;
   width: 100%;
@@ -46,6 +46,10 @@ header.scrolled {
 
 /* 🖼️ Carousel */
 .carousel-caption {
+  position: absolute;
+  left: 5%;
+  bottom: 20%;
+  text-align: left;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
@@ -67,8 +71,7 @@ header.scrolled {
 .info-bar {
   background-color: rgba(0, 100, 0, 0.85);
   color: white;
-  padding: 15px;
-  position: relative;
+  padding: 25px 15px;
   margin-top: -40px;
   z-index: 10;
   animation: slideIn 1s ease-out;
@@ -94,39 +97,25 @@ header.scrolled {
 .info-bar .box {
   background-color: white;
   color: #006400;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-weight: bold;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  margin: 10px;
   transition: transform 0.3s ease;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
 .info-bar .box:hover {
   transform: scale(1.05);
 }
 
-/* 💥 Message d’impact */
-.impact-message h1 {
-  font-size: 3em;
-  color: #006400;
-  font-weight: bold;
-  animation: fadeIn 1.2s ease-out;
-}
-
-.impact-message p {
-  font-size: 1.2em;
-  color: #003366;
-  animation: fadeIn 1.5s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* 🎥 Vidéo */
+/* 🎥 Vidéos */
 .video-section {
-  background-color: #e6f2ff;
+  background-color: #f0f8ff;
   padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   animation: fadeInUp 1s ease-out;
 }
 
@@ -135,40 +124,37 @@ header.scrolled {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-/* 📘 Modules explicatifs */
-.module-row {
-  gap: 20px;
+/* 🧭 Texte logistique */
+.text-center h2 {
+  color: #006400;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.module-item {
-  width: 18%;
-  min-width: 150px;
-  padding: 10px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+.text-center p {
+  color: #003366;
+  font-size: 1.1em;
+}
+
+/* 🖼️ Images dynamiques */
+.img-fluid {
   transition: transform 0.3s ease;
 }
 
-.module-item:hover {
-  transform: translateY(-5px);
+.img-fluid:hover {
+  transform: scale(1.05);
 }
 
-.module-item div {
-  font-size: 2em;
-  margin-bottom: 5px;
-}
-
-.module-item strong {
-  display: block;
-  font-size: 1.1em;
+.row p {
+  margin-top: 10px;
+  font-weight: 500;
   color: #003366;
 }
 
-.module-item p {
-  font-size: 0.9em;
-  color: #555;
-  margin-top: 5px;
+/* 🗺️ Carte itinéraire */
+.map-section iframe {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 /* 🦶 Footer */
