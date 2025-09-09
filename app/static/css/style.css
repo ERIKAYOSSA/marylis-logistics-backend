@@ -1,175 +1,141 @@
-/* 🌐 Général */
+/* === TYPOGRAPHIE === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 body {
-  margin-top: 120px;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
-  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
-a {
-  text-decoration: none;
-}
-
-/* 🔝 Header transparent */
-header {
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  background-color: transparent;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-header.scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.logo {
-  height: 40px;
-}
-
-.top-header .icon {
-  font-size: 1.2em;
-  margin-right: 10px;
-  color: #003366;
-}
-
-.bottom-header .nav-link {
-  font-weight: bold;
-  color: #003366;
+/* === HEADER === */
+.header .menu-link {
+  position: relative;
   transition: color 0.3s ease;
 }
 
-.bottom-header .nav-link:hover {
-  color: #006400;
+.header .menu-link:hover {
+  color: #28a745;
 }
 
-/* 🖼️ Carousel */
-.carousel-caption {
+.header .menu-link:hover::after {
+  content: '';
   position: absolute;
-  left: 5%;
-  bottom: 20%;
-  text-align: left;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(40, 167, 69, 0.4);
+}
+
+/* === BOUTONS TRIANGLE === */
+.triangle-btn {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+  transition: background-color 0.3s ease;
+}
+
+.triangle-btn:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+/* === CAROUSEL === */
+.carousel-item img {
+  object-fit: cover;
+  height: 500px;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem;
   border-radius: 10px;
-  animation: fadeInUp 1s ease-out;
+  color: #fff;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.carousel-caption h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
-/* 📊 Barre semi-transparente */
-.info-bar {
-  background-color: rgba(0, 100, 0, 0.85);
-  color: white;
-  padding: 25px 15px;
-  margin-top: -40px;
-  z-index: 10;
-  animation: slideIn 1s ease-out;
+.carousel-caption p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* === VIDÉOS === */
+.ratio video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
-.info-bar a {
-  color: white;
-  font-weight: bold;
+/* === BLOCS DYNAMIQUES === */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* === FOOTER === */
+footer h5 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: #28a745;
+  text-decoration: underline;
+}
+
+footer .fab {
+  transition: transform 0.3s ease;
+}
+
+footer .fab:hover {
+  transform: scale(1.2);
+  color: #28a745;
+}
+
+/* === QUICK LINKS === */
+footer .quick-links a {
+  color: #fff;
+  text-decoration: none;
   margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
-.info-bar .box {
-  background-color: white;
-  color: #006400;
-  padding: 15px;
-  border-radius: 8px;
-  font-weight: 500;
-  margin: 10px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+footer .quick-links a:hover {
+  color: #28a745;
+  text-decoration: underline;
 }
 
-.info-bar .box:hover {
-  transform: scale(1.05);
-}
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .carousel-caption h3 {
+    font-size: 1.2rem;
+  }
 
-/* 🎥 Vidéos */
-.video-section {
-  background-color: #f0f8ff;
-  padding: 40px 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  animation: fadeInUp 1s ease-out;
-}
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
 
-.video-section video {
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
+  .triangle-btn {
+    clip-path: none;
+    border-radius: 5px;
+  }
 
-/* 🧭 Texte logistique */
-.text-center h2 {
-  color: #006400;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.text-center p {
-  color: #003366;
-  font-size: 1.1em;
-}
-
-/* 🖼️ Images dynamiques */
-.img-fluid {
-  transition: transform 0.3s ease;
-}
-
-.img-fluid:hover {
-  transform: scale(1.05);
-}
-
-.row p {
-  margin-top: 10px;
-  font-weight: 500;
-  color: #003366;
-}
-
-/* 🗺️ Carte itinéraire */
-.map-section iframe {
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-/* 🦶 Footer */
-.footer-line {
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding-top: 15px;
-  font-size: 0.95em;
-}
-
-.legal-links span {
-  margin-right: 15px;
-  white-space: nowrap;
-}
-
-.tech-logos img {
-  height: 30px;
-  border-radius: 5px;
+  .header .menu-link:hover::after {
+    display: none;
+  }
 }
