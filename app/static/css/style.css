@@ -93,6 +93,12 @@ body {
   max-width: 100%;
 }
 
+.media-block img,
+.media-block video {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 .video-wrapper video {
   width: 100%;
   height: auto;

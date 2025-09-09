@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Marylis Logistics 🌍</title>
+  <link rel="icon" type="image/png" href="/static/logo ML.png">
+  <title>Marylis Logistics</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/static/css/style.css">
@@ -60,7 +61,7 @@
   <div class="carousel-inner">
     <!-- Slide 1 -->
     <div class="carousel-item active">
-      <img src="/static/image 1.jpg" class="d-block w-100" alt="Slide 1">
+      <img src="/static/photo.png" class="d-block w-100" alt="Slide 1">
       <div class="carousel-caption">
         <h3>Unlock the full potential of your supply chain</h3>
         <p>This is logistics the simple way: Convenient and connected across ocean, land, and air – and with all your needs covered from end to end.</p>
@@ -232,6 +233,49 @@
           <a href="#article4" class="btn btn-outline-dark">Read more</a>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="row g-4">
+
+    <!-- 🧱 Colonne 1 : une vidéo pleine hauteur -->
+    <div class="col-md-6">
+      <div class="media-block h-100">
+        <video src="/static/vid1.MP4" autoplay muted loop controls class="w-100 rounded shadow" style="height: 100%; object-fit: cover;"></video>
+        <p class="mt-2 text-center">Description for Video 1</p>
+      </div>
+    </div>
+
+    <!-- 🧱 Colonne 2 : image en haut, puis image + vidéo en bas -->
+    <div class="col-md-6 d-flex flex-column justify-content-between h-100">
+
+      <!-- Image du haut -->
+      <div class="media-block mb-4">
+        <img src="/static/image 1.jpg" alt="Image Top" class="img-fluid rounded shadow w-100" style="height: 250px; object-fit: cover;">
+        <p class="mt-2 text-center">Description for Image Top</p>
+      </div>
+
+      <!-- Ligne du bas : image gauche + vidéo droite -->
+      <div class="row g-3">
+        <!-- Image gauche -->
+        <div class="col-6">
+          <div class="media-block">
+            <img src="/static/image 2.png" alt="Image Bottom Left" class="img-fluid rounded shadow w-100" style="height: 200px; object-fit: cover;">
+            <p class="mt-2 text-center">Bottom Left Image</p>
+          </div>
+        </div>
+
+        <!-- Vidéo droite -->
+        <div class="col-6">
+          <div class="media-block">
+            <video src="/static/vid2.MP4" autoplay muted loop controls class="w-100 rounded shadow" style="height: 200px; object-fit: cover;"></video>
+            <p class="mt-2 text-center">Bottom Right Video</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
