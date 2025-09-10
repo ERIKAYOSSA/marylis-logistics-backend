@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion - Marylis Logistics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+    .login-container {
+      max-width: 400px;
+      margin: auto;
+      padding-top: 80px;
+    }
+    footer {
+      border-top: 1px solid #ccc;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔝 Header -->
+  <nav class="navbar navbar-light bg-white border-bottom px-4">
+    <img src="/static/logo ML.png" alt="Marylis Logo" style="max-height: 50px;">
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <select id="langSelect" class="form-select form-select-sm w-auto">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+      <button id="themeToggle" class="btn btn-sm btn-outline-secondary">🌗</button>
+    </div>
+  </nav>
+
+  <!-- 🔐 Formulaire de connexion -->
+  <div class="login-container">
+    <h2 class="text-center mb-4">Connexion</h2>
+    <form method="post" action="/login">
+      <div class="mb-3">
+        <label for="username" class="form-label">Nom d'utilisateur</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-success w-100">Se connecter</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <small>
+        Besoin d’aide avec votre 
+        <a href="#help-username">nom d'utilisateur</a> ou 
+        <a href="#help-password">mot de passe</a> ?
+      </small>
+    </div>
+
+    <!-- 🆕 Bloc d’inscription -->
+    <div class="mt-5 p-4 bg-light rounded shadow-sm text-center">
+      <h5>Nouvel utilisateur ?</h5>
+      <p class="mb-3">Inscrivez-vous pour réserver en ligne, gérer vos expéditions et accéder à une suite de services conçus pour simplifier votre chaîne logistique.</p>
+      <a href="/register" class="btn btn-outline-primary">S'inscrire</a>
+    </div>
+  </div>
+
+  <!-- 🔻 Footer -->
+  <footer class="d-flex justify-content-between align-items-center px-4 mt-5">
+    <img src="/static/logo ML.png" alt="Marylis Logo" style="max-height: 40px;">
+    <div class="d-flex gap-3">
+      <a href="#cookies-policy" class="text-decoration-none">Cookies Policy</a>
+      <a href="#cookies-preferences" class="text-decoration-none">Cookies Preferences</a>
+    </div>
+  </footer>
+
+  <!-- ⚙️ Script pour thème et langue -->
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    document.getElementById('langSelect').addEventListener('change', function () {
+      const lang = this.value;
+      window.location.href = lang === 'fr' ? '/fr/login' : '/en/login';
+    });
+  </script>
+</body>
+</html>
