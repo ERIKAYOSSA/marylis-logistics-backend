@@ -1,0 +1,19 @@
+<h2>Résultats pour : "{{ query }}"</h2>
+
+{% if results %}
+  <div class="row g-4 mt-4">
+    {% for item in results %}
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+            <a href="#" class="btn btn-outline-success">Read more</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="text-muted mt-4">Aucun résultat trouvé pour "{{ query }}".</p>
+{% endif %}

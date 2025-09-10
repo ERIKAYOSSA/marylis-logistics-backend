@@ -17,10 +17,25 @@
   <header class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
+        <!-- Logo -->
         <img src="/static/logo ML.png" alt="Marylis Logo" class="img-fluid" style="max-height: 60px;">
+
+        <!-- Barre d'outils -->
         <div class="d-flex align-items-center ms-auto gap-3">
-          <span>® EN</span>
-          <i class="fas fa-search"></i> 
+
+          <!-- Sélecteur de langue -->
+          <select id="languageSelect" class="form-select form-select-sm w-auto">
+            <option value="en" selected>English</option>
+            <option value="fr">Français</option>
+          </select>
+
+          <!-- Barre de recherche -->
+          <form class="d-flex" role="search" onsubmit="handleSearch(event)">
+            <input class="form-control form-control-sm me-2" type="search" placeholder="Search..." aria-label="Search" id="searchInput">
+            <button class="btn btn-sm btn-outline-success" type="submit">Go</button>
+          </form>
+
+          <!-- Icônes et liens -->
           <i class="fas fa-bell"></i>
           <a href="#support" class="text-decoration-none">Support</a>
           <a href="https://wa.me/237655339496" class="text-decoration-none">Contact Us</a>
@@ -307,14 +322,12 @@
         <li><a href="#inland" class="text-white text-decoration-none">Inland Transport</a></li>
         <li><a href="#lead" class="text-white text-decoration-none">Lead Logistics</a></li>
         <li><a href="#warehousing" class="text-white text-decoration-none">Warehousing</a></li>
-        <li><a href="#air" class="text-white text-decoration-none">Air Freight</a></li>
         <li><a href="#ecommerce" class="text-white text-decoration-none">E-Commerce Logistics</a></li>
         <li><a href="#lcl" class="text-white text-decoration-none">Less-than-Container Load (LCL)</a></li>
         <li><a href="#coldchain" class="text-white text-decoration-none">Cold Chain Logistics</a></li>
         <li><a href="#project" class="text-white text-decoration-none">Marylis Logistics</a></li>
         <li><a href="#depot" class="text-white text-decoration-none">Depot</a></li>
         <li><a href="#coldstorage" class="text-white text-decoration-none">Cold Storage</a></li>
-        <li><a href="#ground" class="text-white text-decoration-none">Maersk Ground Freight Transport</a></li>
         <li><a href="#valueprotect" class="text-white text-decoration-none">Value Protect</a></li>
       </ul>
     </div>
@@ -398,6 +411,23 @@
       header.style.top = "0"; // le fait réapparaître
     }
     lastScrollTop = scrollTop;
+  });
+</script>
+<script>
+  // 🔍 Fonction de recherche
+  function handleSearch(event) {
+    event.preventDefault();
+    const query = document.getElementById('searchInput').value.trim();
+    if (query) {
+      window.location.href = `/search?q=${encodeURIComponent(query)}`;
+    }
+  }
+
+  // 🌐 Changement de langue
+  document.getElementById('languageSelect').addEventListener('change', function () {
+    const lang = this.value;
+    // Exemple : redirection vers une version traduite
+    window.location.href = lang === 'fr' ? '/fr/index.html' : '/en/index.html';
   });
 </script>
 </body> 
