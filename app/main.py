@@ -24,7 +24,7 @@ sample_data = [
 ]
 
 @app.get("/search", response_class=HTMLResponse)
-async def search(request: Request):
+async def search(request: Request): 
     query = request.query_params.get("q", "").lower()
     results = [item for item in sample_data if query in item["title"].lower() or query in item["description"].lower()]
     return templates.TemplateResponse("search_results.html", {
