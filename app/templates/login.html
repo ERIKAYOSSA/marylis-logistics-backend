@@ -41,6 +41,11 @@
   <!-- 🔐 Formulaire de connexion -->
   <div class="login-container">
     <h2 class="text-center mb-4">Connexion</h2>
+
+    {% if error %}
+      <div class="alert alert-danger text-center">{{ error }}</div>
+    {% endif %}
+
     <form method="post" action="/login">
       <div class="mb-3">
         <label for="username" class="form-label">Nom d'utilisateur</label>
