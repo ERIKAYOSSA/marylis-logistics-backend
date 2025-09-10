@@ -1,5 +1,5 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, Request, Form
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -49,4 +49,21 @@ async def search(request: Request):
         "request": request,
         "query": query,
         "results": results
+    })
+
+# 🔐 Route GET pour afficher la page de login
+@app.get("/login", response_class=HTMLResponse)
+async def login_page(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+# 🔐 Route POST pour traiter le formulaire de login
+@app.post("/login", response_class=HTMLResponse)
+async def login(request: Request, username: str = Form(...), password: str = Form(...)):
+    # Exemple simple de vérification (à remplacer par une vraie base de données)
+    if username == "admin" and password == "secret":
+        response = RedirectResponse(url="/", status_code=302)
+        return response
+    return templates.TemplateResponse("login.html", {
+        "request": request,
+        "error": "Nom d'utilisateur ou mot de passe incorrect"
     })
