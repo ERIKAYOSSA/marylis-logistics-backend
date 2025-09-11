@@ -11,7 +11,6 @@
       --text-light: #212529;
       --bg-dark: #121212;
       --text-dark: #f1f1f1;
-      --primary-color: #0d6efd;
       --header-light: #ffffff;
       --header-dark: #1f1f1f;
     }
@@ -49,9 +48,9 @@
     }
 
     .register-container {
-      max-width: 450px;
+      max-width: 600px;
       margin: auto;
-      padding-top: 80px;
+      padding-top: 60px;
     }
 
     .form-control {
@@ -82,15 +81,15 @@
       padding-left: 2rem;
     }
 
-    .signup-box {
-      margin-top: 60px;
-      padding: 2.5rem;
+    .legal-box {
+      margin-top: 40px;
+      font-size: 0.9rem;
       background-color: #f8f9fa;
-      border-radius: 0.75rem;
-      box-shadow: 0 0 12px rgba(0,0,0,0.06);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
     }
 
-    .dark-mode .signup-box {
+    .dark-mode .legal-box {
       background-color: #2a2a2a;
       color: var(--text-dark);
     }
@@ -128,38 +127,80 @@
 
   <!-- 📝 Register Form -->
   <div class="register-container">
-    <h2 class="text-center mb-4">Create Account</h2>
+    <h2 class="text-center mb-4">Create Your Marylis Logistics Account</h2>
 
     <form method="post" action="/register">
-      <div class="mb-4 input-group">
+      <div class="mb-3 input-group">
+        <span class="form-icon"><i class="fas fa-user-plus"></i></span>
+        <input type="text" class="form-control" name="create_username" placeholder="Create username" required>
+      </div>
+      <div class="mb-3 input-group">
         <span class="form-icon"><i class="fas fa-user"></i></span>
-        <input type="text" class="form-control" name="username" placeholder="👤 Username" required>
+        <input type="text" class="form-control" name="username" placeholder="Enter username" required>
       </div>
-      <div class="mb-4 input-group">
+      <div class="mb-3 input-group">
         <span class="form-icon"><i class="fas fa-envelope"></i></span>
-        <input type="email" class="form-control" name="email" placeholder="📧 Email" required>
+        <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
       </div>
-      <div class="mb-4 input-group">
+      <div class="mb-3 input-group">
+        <span class="form-icon"><i class="fas fa-id-card"></i></span>
+        <input type="text" class="form-control" name="first_name" placeholder="First name" required>
+      </div>
+      <div class="mb-3 input-group">
+        <span class="form-icon"><i class="fas fa-id-card-alt"></i></span>
+        <input type="text" class="form-control" name="surname" placeholder="Surname" required>
+      </div>
+      <div class="mb-3 input-group">
+        <span class="form-icon"><i class="fas fa-globe"></i></span>
+        <input type="text" class="form-control" name="country" placeholder="Country/Region" required>
+      </div>
+      <div class="mb-3 input-group">
+        <span class="form-icon"><i class="fas fa-phone"></i></span>
+        <input type="text" class="form-control" name="contact_number" placeholder="Contact number" required>
+      </div>
+      <div class="mb-3 input-group">
+        <span class="form-icon"><i class="fas fa-mobile-alt"></i></span>
+        <input type="text" class="form-control" name="mobile_number" placeholder="Mobile number (optional)">
+      </div>
+      <div class="mb-3 input-group">
+        <span class="form-icon"><i class="fas fa-hashtag"></i></span>
+        <input type="text" class="form-control" name="code" placeholder="000" required>
+      </div>
+      <div class="mb-3 input-group">
         <span class="form-icon"><i class="fas fa-lock"></i></span>
-        <input type="password" class="form-control" name="password" placeholder="🔒 Password" required>
+        <input type="password" class="form-control" name="new_password" placeholder="New password" required>
       </div>
-      <div class="mb-4 input-group">
-        <span class="form-icon"><i class="fas fa-check"></i></span>
-        <input type="password" class="form-control" name="confirm_password" placeholder="✅ Confirm Password" required>
+      <div class="mb-3 input-group">
+        <span class="form-icon"><i class="fas fa-check-circle"></i></span>
+        <input type="password" class="form-control" name="confirm_password" placeholder="Confirm new password" required>
       </div>
-      <button type="submit" class="btn btn-primary w-100">Register</button>
+
+      <div class="form-check mt-3">
+        <input class="form-check-input" type="checkbox" name="terms" required>
+        <label class="form-check-label">
+          I accept the registered user terms and cookie policy
+        </label>
+      </div>
+
+      <div class="form-check mt-2">
+        <input class="form-check-input" type="checkbox" name="marketing">
+        <label class="form-check-label">
+          I agree to receive logistics related news and marketing updates by email, phone, or similar from Marylis Logistics and its affiliated companies. I understand that I can opt out of such Marylis communications at any time. To see how we process your personal data read our Privacy Notification.
+        </label>
+      </div>
+
+      <div class="legal-box mt-4">
+        By registering as a new user, you accept without restriction the user terms (encompassing general user terms, registered user terms and privacy notification) and you will be granted access to our online business services. You can book and track your cargo, submit your shipping instructions, get access to transport documents, view your account statement and view or download reports with detailed data of your cargo movements.
+
+        As a registered customer, you can view your personal and company details in your profile. A list of users within your company is also available.
+
+        Without waiving any other rights and remedies, any breach or violation of the user terms is subject to legal prosecution.
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mt-4">Submit</button>
     </form>
-
-    <!-- 🔁 Login Redirect -->
-    <div class="signup-box text-center">
-      <h5>Already have an account?</h5>
-      <p class="mb-3">Log in to manage your shipments, access your dashboard, and explore Marylis services.</p>
-      <a href="/login" class="btn btn-outline-success">Sign In</a>
-    </div>
   </div>
-
-  <!-- 🔻 Footer -->
-  <footer class="d-flex justify-content-between align-items-center px-4 mt-5">
+    <footer class="d-flex justify-content-between align-items-center px-4 mt-5">
     <img src="/static/logo ML.png" alt="Marylis Logo" style="max-height: 40px;">
     <div class="d-flex gap-3">
       <a href="#cookies-policy" class="text-decoration-none">Cookies Policy</a>

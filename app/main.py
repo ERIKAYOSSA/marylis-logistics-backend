@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from app.routes import auth  # 👈 import du module auth
+from app.routes import register  # 👈 ajoute register
 
 app = FastAPI()
 
@@ -35,3 +36,4 @@ async def search(request: Request):
 
 # 🔐 Inclusion des routes d'authentification
 app.include_router(auth.router)
+app.include_router(register.router) 
