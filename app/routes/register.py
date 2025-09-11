@@ -43,7 +43,6 @@ async def register_user(
             country=country,
             contact_number=contact_number,
             mobile_number=mobile_number,
-            code=code,
             password_hash=bcrypt.hash(new_password),
             marketing_opt_in=marketing
         )
