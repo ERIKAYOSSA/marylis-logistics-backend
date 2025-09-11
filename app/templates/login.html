@@ -12,6 +12,8 @@
       --bg-dark: #121212;
       --text-dark: #f1f1f1;
       --primary-color: #0d6efd;
+      --header-light: #ffffff;
+      --header-dark: #1f1f1f;
     }
 
     body {
@@ -29,9 +31,21 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    .dark-mode .navbar, .dark-mode footer {
-      background-color: #1f1f1f;
+    .navbar {
+      background-color: var(--header-light);
+      color: var(--text-light);
+    }
+
+    .dark-mode .navbar {
+      background-color: var(--header-dark);
       color: var(--text-dark);
+    }
+
+    .dark-mode .navbar .form-select,
+    .dark-mode .navbar .btn {
+      background-color: #2a2a2a;
+      color: var(--text-dark);
+      border-color: #444;
     }
 
     .login-container {
@@ -69,11 +83,11 @@
     }
 
     .signup-box {
-      margin-top: 50px;
-      padding: 2rem;
+      margin-top: 60px;
+      padding: 2.5rem;
       background-color: #f8f9fa;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 0.75rem;
+      box-shadow: 0 0 12px rgba(0,0,0,0.06);
     }
 
     .dark-mode .signup-box {
@@ -84,6 +98,13 @@
     footer {
       border-top: 1px solid #ccc;
       padding: 1rem 0;
+      background-color: var(--header-light);
+      color: var(--text-light);
+    }
+
+    .dark-mode footer {
+      background-color: var(--header-dark);
+      color: var(--text-dark);
     }
 
     .theme-toggle {
@@ -94,7 +115,7 @@
 <body>
 
   <!-- 🔝 Header -->
-  <nav class="navbar navbar-light bg-white border-bottom px-4 d-flex justify-content-between align-items-center">
+  <nav class="navbar border-bottom px-4 d-flex justify-content-between align-items-center">
     <img src="/static/logo ML.png" alt="Marylis Logo" style="max-height: 50px;">
     <div class="d-flex align-items-center gap-3">
       <select id="langSelect" class="form-select form-select-sm w-auto">
