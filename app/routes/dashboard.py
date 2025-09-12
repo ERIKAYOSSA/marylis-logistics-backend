@@ -1,6 +1,8 @@
 from fastapi import APIRouter, Request, Depends
+from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.future import select
 from app.database import SessionLocal
 from app.models.user import User
 
@@ -14,23 +16,24 @@ async def get_db():
 
 @router.get("/dashboard")
 async def show_dashboard(request: Request, db: AsyncSession = Depends(get_db)):
-    # ⚠️ À remplacer par une vraie logique d'authentification
-    # Ici on simule que l'utilisateur connecté est "erikayossa"
-    username = "erikayossa"
+    # 🔐 Récupère le nom d'utilisateur depuis le cookie
+    username = request.cookies.get("username")
+
+    if not username:
+        # Si aucun cookie, redirige vers la page de connexion
+        return RedirectResponse(url="/login", status_code=302)
 
     # 🔍 Requête SQLAlchemy pour récupérer l'utilisateur
-    result = await db.execute(
-        User.__table__.select().where(User.username == username)
-    )
-    user = result.fetchone()
+    result = await db.execute(select(User).where(User.username == username))
+    user = result.scalar_one_or_none()
 
     if not user:
         return templates.TemplateResponse("dashboard.html", {
             "request": request,
-            "error": "User not found"
+            "error": "Utilisateur introuvable"
         })
 
-    # 🔁 Convertir en dict pour le template
+    # 🔁 Données à transmettre au template
     user_data = {
         "username": user.username,
         "surname": user.surname,

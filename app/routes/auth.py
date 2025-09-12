@@ -37,5 +37,7 @@ async def login(
             "error": "Nom d'utilisateur ou mot de passe incorrect"
         })
 
-    # ✅ Connexion réussie → redirection vers le dashboard
-    return RedirectResponse(url="/dashboard", status_code=302)
+    # ✅ Connexion réussie → créer un cookie et rediriger
+    response = RedirectResponse(url="/dashboard", status_code=302)
+    response.set_cookie(key="username", value=username)
+    return response
