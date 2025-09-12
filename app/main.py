@@ -7,7 +7,7 @@ from app.routes import auth  # 👈 import du module auth
 from app.routes import register  # 👈 ajoute register
 from app.routes import dashboard
 from app.routes import logout
-from app.routes import index
+from app.routes.index import router as index_router
 
 app = FastAPI()
 
@@ -42,5 +42,5 @@ app.include_router(auth.router)
 app.include_router(register.router) 
 app.include_router(dashboard.router)
 app.include_router(logout.router)
-app.include_router(index.router)
+app.include_router(index_router)
 
