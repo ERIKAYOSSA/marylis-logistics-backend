@@ -117,6 +117,12 @@
   <div class="register-container">
     <h2 class="text-center mb-4">Create Your Marylis Logistics Account</h2>
 
+    {% if error %}
+      <div class="alert alert-danger text-center fw-semibold">
+        {{ error }}
+      </div>
+    {% endif %}
+
     <form method="post" action="/register" id="registerForm">
       <!-- Champs avec labels et icônes dans les placeholders -->
       <label class="form-label">Create Username</label>
@@ -194,6 +200,7 @@
       const lang = this.value;
       window.location.href = lang === 'fr' ? '/fr/register' : '/en/register';
     });
+
     const form = document.getElementById('registerForm');
     const submitBtn = document.getElementById('submitBtn');
     const requiredFields = form.querySelectorAll('input[required]');
