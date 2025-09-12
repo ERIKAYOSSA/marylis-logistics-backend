@@ -13,7 +13,7 @@ async def login_page(request: Request):
 @router.post("/login", response_class=HTMLResponse)
 async def login(request: Request, username: str = Form(...), password: str = Form(...)):
     if username == "admin" and password == "secret":
-        return RedirectResponse(url="/", status_code=302)
+        return RedirectResponse(url="/dashboard", status_code=302)
     return templates.TemplateResponse("login.html", {
         "request": request,
         "error": "Nom d'utilisateur ou mot de passe incorrect"
